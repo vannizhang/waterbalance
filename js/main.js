@@ -109,6 +109,7 @@ require([
             if (chartData.length === app.operationalLayersURL.length) {
                 domClass.remove(document.body, "app-loading");
                 toggleBottomPane(true);
+                chartData = getValidateChartData(chartData);
                 app.monthlyTrendChart = new MonthlyTrendChart(chartData);
                 app.mainChart = new MainChart(chartData);
             }
@@ -122,6 +123,24 @@ require([
                 identifyTaskOnSuccessHandler(results);
             });
         });
+    }
+
+    // for some reason the server is not working properly that can return data with inconsistent number of elements,
+    // therefore, need to call this function to make sure each item in chart data array contains the same number elements
+    function getValidateChartData(chartData){
+        var minLength = Number.POSITIVE_INFINITY;
+        chartData.forEach((d, i)=>{
+            if(d.values.length < minLength) {
+                minLength = d.values.length;
+            }
+        });
+        chartData.forEach((d, i)=>{
+            if(d.values.length > minLength) {
+                let numOfItemsToRemove = d.values.length - minLength;
+                d.values.splice(minLength, numOfItemsToRemove);
+            }
+        });
+        return chartData;
     }
 
     function executeIdentifyTask(inputGeometry, identifyTaskURL, imageServiceTitle) {
