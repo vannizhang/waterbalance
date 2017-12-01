@@ -1,5 +1,5 @@
 # Water Balance App
----
+
 This is a [web mapping application](https://livingatlasdev.arcgis.com/waterbalance/) to visualize the worldwide climate data covers the last 17 years from NASA's Global Land Data Assimilation System ([GLDAS](https://ldas.gsfc.nasa.gov/)), which uses weather observations like temperature, humidity and rainfall.
 
 #### This application was built using the following libraries:
