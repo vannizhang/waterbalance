@@ -1,15 +1,56 @@
 # Water Balance App
 
-Most discussion of climate change has focused on temperature or sea level rise, but changes in freshwater availability will be an even larger challenge in many regions of the world. This topic is often ignored because it is difficult to quantify and forecast, but as hydrologic patterns begin to change we must take notice and adapt. Where you live, is rainfall becoming scarcer? Or more intense? Is the trend different in winter than in the summer? These are the kind of questions we need to be able to answer as we adapt our infrastructure to a changing climate.
+The [Water Balance App](https://livingatlasdev.arcgis.com/waterbalance/) is a web based mapping application that is used to explore and visualize the worldwide climate data that have been collected since January 2000 to present, this climate record is maintained by NASA through it's Global Land Data Assimilation System ([GLDAS](https://ldas.gsfc.nasa.gov/)), and is updated each month as new data becomes available.. Learn more [here](https://blogs.esri.com/esri/arcgis/2017/09/25/explore-climate-trends-with-the-water-balance-app/).
 
-Luckily, NASA maintains a record of this information through its Global Land Data Assimilation System ([GLDAS](https://ldas.gsfc.nasa.gov/)), which is available to ArcGIS users through the [Living Atlas of the World](https://livingatlas.arcgis.com/en/#s=0&q=gldas). This climate record covers the last 17 years (January 2000 to present), and is updated each month as new data becomes available. 
+[View it live](https://livingatlasdev.arcgis.com/waterbalance/)
 
-Five variables from GLDAS are [available as image services](http://www.arcgis.com/home/group.html?id=f615932f60094044b4abca4597444b4c) through Esri’s Living Atlas: precipitation, runoff, evapotranspiration, soil moisture, and snowpack. Together, these are the forces that drive the terrestrial water budget. Soil moisture plus snowpack is the water storage at any given place. Every month that storage volume changes according to the water flux - recharge occurs when precipitation is high, depletion occurs when evapotranspiration and runoff are higher. So, if you want to know how much rain a specific watershed received last summer, how much of that rain became runoff, and how this affected the region’s water availability, these GLDAS image services make it easy for you to do that analysis.
+![App](https://blogs.esri.com/esri/arcgis/files/2017/09/gldas.gif)
 
-Today Esri is releasing a [new app](https://livingatlas.arcgis.com/waterbalance/) that makes it even easier to interrogate and explore these data and isolate patterns that could affect your life. Click anywhere on the map to see how a chosen variable has changed over time, and click anywhere on the graph to switch the map to that month of interest.
+## Features
+* Click anywhere on the map to see how a chosen variable has changed over time, and click anywhere on the main graph (on the center) to switch the map to that month of interest.
+* The water balance panel (on the left) shows how much recharge or depletion occurred during your chosen month, and how this compares to what’s normal.
+* The trend analyzer panel (on the right) shows how your chosen variable was different in the same month during other years. This panel also allows you to see the seasonal variation during a normal year (by graphing the average for each month) or aggregate the time series into annual time steps to see the long term trend more clearly.
 
-![gldas](https://blogs.esri.com/esri/arcgis/files/2017/09/gldas.gif)
+## Instructions
 
-The water balance panel (on the left) shows how much recharge or depletion occurred during your chosen month, and how this compares to what’s normal. The trend analyzer panel (on the right) shows how your chosen variable was different in the same month during other years. This panel also allows you to see the seasonal variation during a normal year (by graphing the average for each month) or aggregate the time series into annual time steps to see the long term trend more clearly.
+1. Fork and then clone the repo. 
+2. Navigate to the home directory of the repo on your local machine with the web server running and view the app
 
-This app is based on data from GLDAS version 2.1, which uses weather observations like temperature, humidity, and rainfall to run the [Noah](https://www.jsg.utexas.edu/noah-mp) land surface model. This model estimates how much of the rain becomes runoff, how much evaporates, and how much infiltrates into the soil. Because the model is run with 0.25 degree spatial resolution (~30 km), these data should only be used for regional analysis. A specific farm or other small area might experience very different conditions than the region around it, especially because human influences like irrigation are not included.
+## Requirements
+
+- [ArcGIS API for JavaScript (version 3.20)](https://developers.arcgis.com/javascript/index.html)
+- [D3.js](https://d3js.org/)
+- [jQuery](http://jquery.com/)
+- [Moment.js](http://momentjs.com/)
+
+## Resources
+
+* Five variables from GLDAS are available as image services through [ArcGIS Living Atlas of the World](https://livingatlas.arcgis.com/en/#s=0&q=gldas): precipitation, runoff, evapotranspiration, soil moisture, and snowpack.
+* [NASA's Global Land Data Assimilation System](https://ldas.gsfc.nasa.gov/)
+* [Noah land surface model](https://www.jsg.utexas.edu/noah-mp)
+* [Water Balance App Blog Post](https://blogs.esri.com/esri/arcgis/2017/09/25/explore-climate-trends-with-the-water-balance-app/)
+
+## Issues
+
+Find a bug or want to request a new feature?  Please let us know by submitting an issue.
+
+## Contributing
+
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+
+## Licensing
+Copyright 2016 Esri
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/quickstart-map-js/master/license.txt) file.
